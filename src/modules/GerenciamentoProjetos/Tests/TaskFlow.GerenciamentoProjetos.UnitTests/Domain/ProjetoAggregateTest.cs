@@ -47,7 +47,28 @@ namespace TaskFlow.GerenciamentoProjetos.UnitTests.Domain
             //Act - Assert
             Assert.Equal(projeto1.Titulo, nomeProjeto);
             Assert.Throws<ProjetoDomainException>(() => new Projeto("Projeto 01", null));
-            Assert.Throws<ProjetoDomainException>(() => new Projeto("Projeto 02",""));
+            Assert.Throws<ProjetoDomainException>(() => new Projeto("Projeto 02", ""));
         }
+
+        [Fact]
+        public void Deve_adicionar_varios_fluxos_trabalho_ao_projeto()
+        {
+            //Arrange
+            var fluxoTrabalho1Nome = "Para Fazer";
+            var fluxoTrabalho2Nome = "Em Andamento";
+            var fluxoTrabalho3Nome = "Revisão de Código";
+            var projeto = new Projeto("Projeto de teste", "Descrição do projeto de teste");
+
+            //Act 
+            projeto.AdicionarFluxoTrabalho(fluxoTrabalho1Nome);
+            projeto.AdicionarFluxoTrabalho(fluxoTrabalho2Nome);
+            projeto.AdicionarFluxoTrabalho(fluxoTrabalho3Nome);
+
+            //Assert
+            Assert.Equal(3, projeto.FluxosTrabalho.Count);
+        }
+
+
+
     }
 }

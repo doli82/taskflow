@@ -12,11 +12,12 @@ namespace TaskFlow.GerenciamentoProjetos.Domain
 	public class FluxoTrabalho: Entity
 	{
 		public string Titulo { get; private set; }
+		public int ProjetoId { get; private set; }
 
 		public IEnumerable<Estado> Estados => _estados;
 		private readonly List<Estado> _estados = new List<Estado>();
 
-		public FluxoTrabalho(string titulo)
+		internal FluxoTrabalho(string titulo)
 		{
 			if (string.IsNullOrWhiteSpace(titulo))
 			{

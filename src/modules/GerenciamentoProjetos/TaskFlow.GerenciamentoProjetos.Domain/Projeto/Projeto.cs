@@ -1,11 +1,16 @@
-﻿using TaskFlow.GerenciamentoProjetos.Domain.Exceptions;
+﻿using System.Collections.Generic;
+using Taskflow.Core.Domain;
+using TaskFlow.GerenciamentoProjetos.Domain.Exceptions;
 
 namespace TaskFlow.GerenciamentoProjetos.Domain.Projeto
 {
-	public class Projeto
+	public class Projeto: Entity
 	{
 		public string Titulo { get; private set; }
 		public string Descricao { get; private set; }
+
+		public IReadOnlyCollection<FluxoTrabalho> FluxosTrabalho => _fluxosTrabalho;
+		private readonly List<FluxoTrabalho> _fluxosTrabalho = new();
 
 		public Projeto(string titulo, string descricao)
 		{
@@ -20,6 +25,11 @@ namespace TaskFlow.GerenciamentoProjetos.Domain.Projeto
 			}
 			Titulo=titulo;
 			Descricao=descricao;
+		}
+
+		public void AdicionarFluxoTrabalho(string fluxoTrabalhoNome)
+		{
+			_fluxosTrabalho.Add(new FluxoTrabalho(fluxoTrabalhoNome));
 		}
 	}
 }

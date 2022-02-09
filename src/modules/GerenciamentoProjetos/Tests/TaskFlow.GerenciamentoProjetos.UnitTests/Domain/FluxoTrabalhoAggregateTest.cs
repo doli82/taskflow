@@ -1,7 +1,6 @@
-using System;
 using System.Linq;
-using TaskFlow.GerenciamentoProjetos.Domain;
 using TaskFlow.GerenciamentoProjetos.Domain.Exceptions;
+using TaskFlow.GerenciamentoProjetos.Domain.Projeto;
 using Xunit;
 
 namespace TaskFlow.GerenciamentoProjetos.UnitTests.Domain
@@ -12,35 +11,24 @@ namespace TaskFlow.GerenciamentoProjetos.UnitTests.Domain
 		{
 		}
 
-		[Fact]
-        public void Deve_criar_um_fluxo_de_trabalho()
-        {
-            //Arrange
-            var titulo = "Novo fluxo de trabalho";
-
-            //Act 
-            var fluxoTrabalho = new FluxoTrabalho(titulo);
-
-            //Assert
-            Assert.NotNull(fluxoTrabalho);
-        }
-
         [Fact]
-        public void Deve_conter_um_titulo_no_novo_fluxo_de_trabalho()
+        public void Deve_conter_titulo_o_novo_fluxo_de_trabalho()
         {
             //Arrange
             string tituloCorreto = "Novo Fluxo de Trabalho";
             var tituloVazio = "";
             string tituloNulo = null;
+            var projeto = new Projeto("Projeto Teste", "Testando título do fluxo de trabalho");  
 
             //Act
-            var fluxoTrabalho = new FluxoTrabalho(tituloCorreto);
-            
+            projeto.AdicionarFluxoTrabalho(tituloCorreto);            
+
             //Assert
-            Assert.Equal(fluxoTrabalho.Titulo, tituloCorreto);
+            Assert.Equal(tituloCorreto, projeto.FluxosTrabalho.First().Titulo);
+
             //Act - Assert
-            Assert.Throws<FluxoTrabalhoDomainException>(() => new FluxoTrabalho(tituloVazio));
-            Assert.Throws<FluxoTrabalhoDomainException>(() => new FluxoTrabalho(tituloNulo));
+            Assert.Throws<FluxoTrabalhoDomainException>(() => projeto.AdicionarFluxoTrabalho(tituloVazio));
+            Assert.Throws<FluxoTrabalhoDomainException>(() => projeto.AdicionarFluxoTrabalho(tituloNulo));
         }
 
         [Fact]
@@ -52,7 +40,10 @@ namespace TaskFlow.GerenciamentoProjetos.UnitTests.Domain
             string estado1Descricao = "Trabalho que não foi iniciado";
             string estado2Titulo = "Em Andamento";
             string estado2Descricao = "Trabalho que está sendo feito pela equipe";
-            var fluxoTrabalho = new FluxoTrabalho(titulo);
+
+            var projeto = new Projeto("Projeto Teste", "Testando título do fluxo de trabalho");
+            projeto.AdicionarFluxoTrabalho(titulo);
+            var fluxoTrabalho = projeto.FluxosTrabalho.First();
 
             // Act
             fluxoTrabalho.AdicionarEstado(estado1Titulo, estado1Descricao);
@@ -63,18 +54,20 @@ namespace TaskFlow.GerenciamentoProjetos.UnitTests.Domain
         }
 
         [Fact]
-        public void Deve_conter_um_titulo_nos_novos_estados_dos_fluxos_de_trabalho()
+        public void Deve_conter_titulo_o_novo_estado_do_fluxo_de_trabalho()
         {
             //Arrange
             var titulo = "Fluxo de Teste";
-            string estado1Titulo = null;
-            string estado1Descricao = "Trabalho que não foi iniciado";
-            string estado2Titulo = "";
-            var fluxoTrabalho = new FluxoTrabalho(titulo);
+            string estadoTitulo = "Revisão de Código";
+            string estadoDescricao = "Trabalho que não foi iniciado";
+            var projeto = new Projeto("Projeto Teste", "Testando título do fluxo de trabalho");
+            projeto.AdicionarFluxoTrabalho(titulo);
+            var fluxoTrabalho = projeto.FluxosTrabalho.First();
+            fluxoTrabalho.AdicionarEstado(estadoTitulo, estadoDescricao);
 
             //Act - Assert
-            Assert.Throws<FluxoTrabalhoDomainException>(() => fluxoTrabalho.AdicionarEstado(estado1Titulo, estado1Descricao));
-            Assert.Throws<FluxoTrabalhoDomainException>(() => fluxoTrabalho.AdicionarEstado(estado2Titulo));
+            Assert.Equal(estadoTitulo , fluxoTrabalho.Estados.First().Titulo);
+            Assert.Throws<FluxoTrabalhoDomainException>(() => fluxoTrabalho.AdicionarEstado(null, estadoDescricao));
         }
     }
 }
