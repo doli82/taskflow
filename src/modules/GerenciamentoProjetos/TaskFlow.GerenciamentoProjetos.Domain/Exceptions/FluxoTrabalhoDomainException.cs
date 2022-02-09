@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Taskflow.Core.Domain;
 
 namespace TaskFlow.GerenciamentoProjetos.Domain.Exceptions
 {
-	public class FluxoTrabalhoDomainException : Exception
+	public class FluxoTrabalhoDomainException : DomainException
 	{
 		public FluxoTrabalhoDomainException(string message) : base(message)
 		{
