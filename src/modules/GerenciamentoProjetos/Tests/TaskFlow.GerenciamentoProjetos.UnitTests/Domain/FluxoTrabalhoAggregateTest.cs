@@ -1,10 +1,10 @@
 using System;
 using System.Linq;
-using TaskFlow.FluxosTrabalho.Domain;
-using TaskFlow.FluxosTrabalho.Domain.Exceptions;
+using TaskFlow.GerenciamentoProjetos.Domain;
+using TaskFlow.GerenciamentoProjetos.Domain.Exceptions;
 using Xunit;
 
-namespace TaskFlow.FluxosTrabalho.UnitTests.Domain
+namespace TaskFlow.GerenciamentoProjetos.UnitTests.Domain
 {
 	public class FluxoTrabalhoAggregateTest
 	{

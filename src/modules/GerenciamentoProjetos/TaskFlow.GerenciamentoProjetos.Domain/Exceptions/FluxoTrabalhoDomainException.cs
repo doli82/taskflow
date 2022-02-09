@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TaskFlow.FluxosTrabalho.Domain.Exceptions
+namespace TaskFlow.GerenciamentoProjetos.Domain.Exceptions
 {
 	public class FluxoTrabalhoDomainException : Exception
 	{

@@ -3,7 +3,7 @@
 // Implementação inicial com base nas especificações deste link:
 // https://www.atlassian.com/br/agile/project-management/workflow
 
-namespace TaskFlow.FluxosTrabalho.Domain
+namespace TaskFlow.GerenciamentoProjetos.Domain
 {
 	public class Estado: Entity
 	{
