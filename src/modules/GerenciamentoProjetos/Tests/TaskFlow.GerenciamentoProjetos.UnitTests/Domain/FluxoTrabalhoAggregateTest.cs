@@ -1,6 +1,7 @@
 using System.Linq;
 using TaskFlow.GerenciamentoProjetos.Domain.Exceptions;
-using TaskFlow.GerenciamentoProjetos.Domain.Projeto;
+using TaskFlow.GerenciamentoProjetos.Domain.FluxosTrabalho;
+using TaskFlow.GerenciamentoProjetos.Domain.Projetos;
 using Xunit;
 
 namespace TaskFlow.GerenciamentoProjetos.UnitTests.Domain
@@ -9,7 +10,22 @@ namespace TaskFlow.GerenciamentoProjetos.UnitTests.Domain
 	{
 		public FluxoTrabalhoAggregateTest()
 		{
-		}
+        }
+
+        [Fact]
+        public void Deve_criar_um_novo_fluxo_de_trabalho()
+        {
+            //Arrange
+            string tituloCorreto = "Novo Fluxo de Trabalho";
+            var projeto = new Projeto("Projeto Teste", "Testando título do fluxo de trabalho");
+
+            //Act
+            projeto.AdicionarFluxoTrabalho(tituloCorreto);
+
+            //Assert
+            Assert.True(projeto.FluxosTrabalho.Any());
+            Assert.IsType<FluxoTrabalho>(projeto.FluxosTrabalho.First());
+        }
 
         [Fact]
         public void Deve_conter_titulo_o_novo_fluxo_de_trabalho()
@@ -18,10 +34,10 @@ namespace TaskFlow.GerenciamentoProjetos.UnitTests.Domain
             string tituloCorreto = "Novo Fluxo de Trabalho";
             var tituloVazio = "";
             string tituloNulo = null;
-            var projeto = new Projeto("Projeto Teste", "Testando título do fluxo de trabalho");  
+            var projeto = new Projeto("Projeto Teste", "Testando título do fluxo de trabalho");
 
             //Act
-            projeto.AdicionarFluxoTrabalho(tituloCorreto);            
+            projeto.AdicionarFluxoTrabalho(tituloCorreto);
 
             //Assert
             Assert.Equal(tituloCorreto, projeto.FluxosTrabalho.First().Titulo);

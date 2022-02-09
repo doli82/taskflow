@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Taskflow.Core.Domain;
 using TaskFlow.GerenciamentoProjetos.Domain.Exceptions;
@@ -7,7 +6,7 @@ using TaskFlow.GerenciamentoProjetos.Domain.Exceptions;
 // Implementação inicial com base nas especificações deste link:
 // https://www.atlassian.com/br/agile/project-management/workflow
 
-namespace TaskFlow.GerenciamentoProjetos.Domain
+namespace TaskFlow.GerenciamentoProjetos.Domain.FluxosTrabalho
 {
 	public class FluxoTrabalho: Entity
 	{

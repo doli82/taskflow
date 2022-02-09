@@ -1,5 +1,5 @@
 ﻿using TaskFlow.GerenciamentoProjetos.Domain.Exceptions;
-using TaskFlow.GerenciamentoProjetos.Domain.Projeto;
+using TaskFlow.GerenciamentoProjetos.Domain.Projetos;
 using Xunit;
 
 namespace TaskFlow.GerenciamentoProjetos.UnitTests.Domain

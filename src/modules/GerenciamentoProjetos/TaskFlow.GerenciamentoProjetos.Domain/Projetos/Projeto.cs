@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using Taskflow.Core.Domain;
 using TaskFlow.GerenciamentoProjetos.Domain.Exceptions;
+using TaskFlow.GerenciamentoProjetos.Domain.FluxosTrabalho;
 using TaskFlow.GerenciamentoProjetos.Domain.Participantes;
 
-namespace TaskFlow.GerenciamentoProjetos.Domain.Projeto
+namespace TaskFlow.GerenciamentoProjetos.Domain.Projetos
 {
 	public class Projeto: Entity
 	{
