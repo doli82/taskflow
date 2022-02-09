@@ -14,17 +14,17 @@ Voltar ao [Início](../Readme.md)
 - As `equipes` **devem** conter pelo menos um `usuário`
 
 ## Projeto
-- Os `projetos` **devem** conter um nome
-- Os `projetos` **devem** conter um descrição
-- Os `projetos` **podem** conter uma data de início
+- [x] Os `projetos` **devem** conter um nome
+- [x] Os `projetos` **devem** conter um descrição
+- Os `projetos` **podem** conter uma data de início *****
 - Os `projetos` **podem** conter uma data de fim
-- Os `projetos` **podem** conter vários `fluxo de trabalho`
+- [x] Os `projetos` **podem** conter vários `fluxo de trabalho`
 - Os `projetos` **devem** conter pelo menos uma `equipe de usuários`
 
 ## Fluxo de Trabalho
-- Os `fluxos de trabalho` deve conter um título
-- Os `fluxos de trabalho` deve estar associado a um `projeto`
-- Os `fluxos de trabalho` deve conter `fases`
+- [x] Os `fluxos de trabalho` deve conter um título
+- [x] Os `fluxos de trabalho` deve estar associado a um `projeto`
+- [x] Os `fluxos de trabalho` deve conter `fases`
 
 ## Tarefas
 
