@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
+using Taskflow.Core.Data;
 using TaskFlow.GerenciamentoTarefas.Domain.Repositories;
 using TaskFlow.GerenciamentoTarefas.Domain.Tarefas;
 using TaskFlow.GerencimentoTarefas.Infrastructure.DbContexts;
@@ -20,7 +21,7 @@ namespace TaskFlow.GerencimentoTarefas.Infrastructure.Repositories
             _context.Add(entity);
         }
 
-        public async Task<bool> Commit()
+		public async Task<bool> Commit()
         {
             return await _context.SaveChangesAsync() > 0;
         }
@@ -39,7 +40,12 @@ namespace TaskFlow.GerencimentoTarefas.Infrastructure.Repositories
         {
             _context.Update(entity);
         }
-    }
+
+		Task<Tarefa> IRepository<Tarefa>.GetById(int id)
+		{
+			throw new System.NotImplementedException();
+		}
+	}
 
 
 }

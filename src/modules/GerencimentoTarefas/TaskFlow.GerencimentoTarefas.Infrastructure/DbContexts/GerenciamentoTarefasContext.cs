@@ -1,14 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TaskFlow.GerenciamentoTarefas.Domain.Tarefas;
 
 namespace TaskFlow.GerencimentoTarefas.Infrastructure.DbContexts
 {
-    public class GerenciamentoTarefasContext : DbContext
+	public class GerenciamentoTarefasContext : DbContext
     {
         public GerenciamentoTarefasContext(DbContextOptions<GerenciamentoTarefasContext> options) : base(options) { }
 

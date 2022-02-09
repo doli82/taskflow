@@ -62,10 +62,10 @@ namespace TaskFlow.GerenciamentoTarefas.Domain.Tarefas
 
         public void AtribuirUsuarioResponsavel(Usuario usuario)
         {
-            if (Usuario != null)
+            if (UsuarioId == null && UsuarioId != 0)
                 throw new Exception("Já existe um reponsável atruido a tarefa.");
 
-            Usuario = usuario;
+            UsuarioId = usuario.Id;
         }
 
         public void ProrrogarPrevisaoEntrega(DateTime novaPrevisao)

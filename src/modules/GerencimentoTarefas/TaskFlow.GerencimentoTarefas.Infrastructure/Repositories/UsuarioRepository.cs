@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using TaskFlow.GerenciamentoTarefas.Domain.Repositories;
 using TaskFlow.GerenciamentoTarefas.Domain.Tarefas;
 using TaskFlow.GerencimentoTarefas.Infrastructure.DbContexts;
 
 namespace TaskFlow.GerencimentoTarefas.Infrastructure.Repositories
 {
-    public class UsuarioRepository : IUsuarioRepository
+	public class UsuarioRepository : IUsuarioRepository
     {
         private readonly GerenciamentoTarefasContext _context;
 

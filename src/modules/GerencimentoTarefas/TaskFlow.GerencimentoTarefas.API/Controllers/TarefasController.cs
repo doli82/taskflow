@@ -1,36 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using TaskFlow.GerenciamentoTarefas.Domain.Repositories;
-using TaskFlow.GerenciamentoTarefas.Domain.Tarefas;
-using TaskFlow.GerencimentoTarefas.API.Extensions;
-using TaskFlow.GerencimentoTarefas.API.Models.Inputs;
-using TaskFlow.GerencimentoTarefas.API.Models.Mappings;
-using TaskFlow.GerencimentoTarefas.API.Models.Views;
-using TaskFlow.GerencimentoTarefas.Infrastructure.DbContexts;
-using TaskFlow.GerencimentoTarefas.Infrastructure.Repositories;
+using TaskFlow.GerencimentoTarefas.API.Models.Input;
 
 namespace TaskFlow.GerencimentoTarefas.API.Controllers
 {
-    [Route("api/[controller]")]
+	[Route("api/[controller]")]
     [ApiController]
     public class TarefasController : ControllerBase
     {
-    
+        private readonly ITarefaRepository _tarefaRepository;
 
         public TarefasController(ITarefaRepository tarefaReposity)
         {
-            _tarefaReposity = tarefaReposity;
+            _tarefaRepository = tarefaReposity;
         }
 
         [HttpPost("registrar")]
-        public async Task<IActionResult> Registrar(TarefaInputModel input)
+        public IActionResult Registrar(TarefaInputModel inputModel)
         {
-
-         
-
-        
-
-            return Ok(viewModel);
+            return Ok();
         }
 
 

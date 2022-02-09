@@ -1,17 +1,12 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using TaskFlow.GerencimentoTarefas.Infrastructure.DbContexts;
-using Pomelo.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using TaskFlow.GerencimentoTarefas.Infrastructure.Repositories;
+using TaskFlow.GerencimentoTarefas.Infrastructure.DbContexts;
 using TaskFlow.GerenciamentoTarefas.Domain.Repositories;
+using TaskFlow.GerencimentoTarefas.Infrastructure.Repositories;
 
 namespace TaskFlow.GerencimentoTarefas.API.Configurations
 {
-    public static class ServicesConfiguration
+	public static class ServicesConfiguration
     {
         public static void AddServiceConfigurations(this IServiceCollection services)
         {

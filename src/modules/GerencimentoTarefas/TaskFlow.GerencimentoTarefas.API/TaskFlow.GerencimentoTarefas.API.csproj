@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\Inputs\**" />
+    <Content Remove="Models\Inputs\**" />
+    <EmbeddedResource Remove="Models\Inputs\**" />
+    <None Remove="Models\Inputs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="EFCore.NamingConventions" Version="5.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.7">
@@ -22,10 +29,6 @@
   <ItemGroup>
     <ProjectReference Include="..\TaskFlow.GerenciamentoTarefas.Domain\TaskFlow.GerenciamentoTarefas.Domain.csproj" />
     <ProjectReference Include="..\TaskFlow.GerencimentoTarefas.Infrastructure\TaskFlow.GerencimentoTarefas.Infrastructure.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Models\Inputs\" />
   </ItemGroup>
 
 </Project>
