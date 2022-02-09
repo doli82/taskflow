@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\TaskFlow.FluxosTrabalho.Domain\TaskFlow.FluxosTrabalho.Domain.csproj" />
+    <ProjectReference Include="..\..\TaskFlow.GerenciamentoProjetos.Domain\TaskFlow.GerenciamentoProjetos.Domain.csproj" />
   </ItemGroup>
 
 </Project>
