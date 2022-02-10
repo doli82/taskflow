@@ -27,7 +27,7 @@ Voltar ao [Início](../Readme.md)
 - [x] Os `projetos` **devem** conter um nome
 - [x] Os `projetos` **devem** conter um descrição
 - [x] Os `projetos` **podem** conter uma data de início
-- Os `projetos` **podem** conter uma data de fim
+- [x] Os `projetos` **podem** conter uma data de fim
 - [x] Os `projetos` **podem** conter vários `fluxo de trabalho`
 - Os `projetos` **devem** conter pelo menos uma `equipe de usuários` ****
 - Os projetos **podem** conter um participante ou equipe `responsável`

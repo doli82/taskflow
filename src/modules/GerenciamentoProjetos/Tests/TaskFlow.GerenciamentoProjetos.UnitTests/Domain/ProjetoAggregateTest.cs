@@ -82,5 +82,46 @@ namespace TaskFlow.GerenciamentoProjetos.UnitTests.Domain
             //Assert
             Assert.Equal(dataInicioProjeto, projeto.DataInicio);
         }
+
+        [Fact]
+        public void Deve_adicionar_data_de_termino_a_um_projeto()
+        {
+            //Arrange
+            DateTime dataInicioProjeto = DateTime.Parse("1982-09-14 13:32:00");
+            DateTime dataTerminoProjeto = DateTime.Parse("2022-02-09 23:25:00");
+            var projeto = new Projeto("Projeto de teste", "Descrição do projeto de teste");
+
+            //Act 
+            projeto.DefinirDataInicio(dataInicioProjeto);
+            projeto.DefinirDataTermino(dataTerminoProjeto);
+
+            //Assert
+            Assert.Equal(dataTerminoProjeto, projeto.DataTermino);
+        }
+
+        [Fact]
+        public void Deve_falhar_ao_adicionar_data_de_termino_sem_data_de_inicio()
+        {
+            //Arrange
+            DateTime dataInicioProjeto = DateTime.Parse("1982-09-14 13:32:00");
+            DateTime dataTerminoProjeto = DateTime.Parse("2022-02-09 23:25:00");
+            var projeto = new Projeto("Projeto de teste", "Descrição do projeto de teste");
+
+            //Act - Assert
+            Assert.Throws<ProjetoDomainException>(() => projeto.DefinirDataTermino(dataTerminoProjeto));
+        }
+
+        [Fact]
+        public void Deve_falhar_ao_adicionar_data_de_termino_menor_que_a_data_de_inicio()
+        {
+            //Arrange
+            DateTime dataInicioProjeto = DateTime.Parse("2022-02-09 23:25:00");
+            DateTime dataTerminoProjeto = DateTime.Parse("1982-09-14 13:32:00");
+            var projeto = new Projeto("Projeto de teste", "Descrição do projeto de teste");
+            projeto.DefinirDataInicio(dataInicioProjeto);
+            
+            //Act - Assert
+            Assert.Throws<ProjetoDomainException>(() => projeto.DefinirDataTermino(dataTerminoProjeto));
+        }
     }
 }

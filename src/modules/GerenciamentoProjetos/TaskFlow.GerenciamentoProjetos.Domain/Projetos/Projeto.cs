@@ -12,6 +12,7 @@ namespace TaskFlow.GerenciamentoProjetos.Domain.Projetos
 		public string Titulo { get; private set; }
 		public string Descricao { get; private set; }
 		public DateTime DataInicio { get; private set; }
+		public DateTime DataTermino { get; private set; }
 
 		public IReadOnlyCollection<FluxoTrabalho> FluxosTrabalho => _fluxosTrabalho;
 		private readonly List<FluxoTrabalho> _fluxosTrabalho = new();
@@ -48,6 +49,19 @@ namespace TaskFlow.GerenciamentoProjetos.Domain.Projetos
 		public void DefinirDataInicio(DateTime dataInicioProjeto)
 		{
 			DataInicio = dataInicioProjeto;
+		}
+
+		public void DefinirDataTermino(DateTime dataTerminoProjeto)
+		{
+			if (DataInicio == DateTime.MinValue)
+			{
+				throw new ProjetoDomainException("Não é possível definir uma data de término sem ter uma data de início.");
+			}
+			if (dataTerminoProjeto < DataInicio)
+			{
+				throw new ProjetoDomainException("A data de término precisa ser maior que a de início.");
+			}
+			DataTermino = dataTerminoProjeto;
 		}
 	}
 }
