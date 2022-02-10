@@ -11,15 +11,26 @@ Voltar ao [Início](../Readme.md)
 
 ## Equipe
 - As `equipes` **devem** conter um nome
-- As `equipes` **devem** conter pelo menos um `usuário`
+- As `equipes` **devem** conter pelo menos um `participante`
+- As `equipes` **podem** conter um `lider`
+
+# Participamnte
+- são usuários do sistema que integram projetos
+- podem participar de um ou mais projetos
+
+# Lider Equipe
+- pode liderar uma ou mais equipes
+- podem criar projetos
+- pode criar equipes
 
 ## Projeto
 - [x] Os `projetos` **devem** conter um nome
 - [x] Os `projetos` **devem** conter um descrição
-- Os `projetos` **podem** conter uma data de início *****
+- [x] Os `projetos` **podem** conter uma data de início
 - Os `projetos` **podem** conter uma data de fim
 - [x] Os `projetos` **podem** conter vários `fluxo de trabalho`
-- Os `projetos` **devem** conter pelo menos uma `equipe de usuários`
+- Os `projetos` **devem** conter pelo menos uma `equipe de usuários` ****
+- Os projetos **podem** conter um participante ou equipe `responsável`
 
 ## Fluxo de Trabalho
 - [x] Os `fluxos de trabalho` deve conter um título

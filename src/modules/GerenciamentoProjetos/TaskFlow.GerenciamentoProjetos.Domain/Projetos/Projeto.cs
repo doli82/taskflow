@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Taskflow.Core.Domain;
 using TaskFlow.GerenciamentoProjetos.Domain.Exceptions;
 using TaskFlow.GerenciamentoProjetos.Domain.FluxosTrabalho;
@@ -10,10 +11,13 @@ namespace TaskFlow.GerenciamentoProjetos.Domain.Projetos
 	{
 		public string Titulo { get; private set; }
 		public string Descricao { get; private set; }
+		public DateTime DataInicio { get; private set; }
 
 		public IReadOnlyCollection<FluxoTrabalho> FluxosTrabalho => _fluxosTrabalho;
 		private readonly List<FluxoTrabalho> _fluxosTrabalho = new();
 		public IReadOnlyCollection<Participante> Participantes => _participantes;
+
+
 		private readonly List<Participante> _participantes = new();
 
 		public Projeto(string titulo, string descricao)
@@ -39,6 +43,11 @@ namespace TaskFlow.GerenciamentoProjetos.Domain.Projetos
 		public void AdicionarFluxoTrabalho(string fluxoTrabalhoNome)
 		{
 			_fluxosTrabalho.Add(new FluxoTrabalho(fluxoTrabalhoNome));
+		}
+
+		public void DefinirDataInicio(DateTime dataInicioProjeto)
+		{
+			DataInicio = dataInicioProjeto;
 		}
 	}
 }

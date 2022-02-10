@@ -1,4 +1,5 @@
-﻿using TaskFlow.GerenciamentoProjetos.Domain.Exceptions;
+﻿using System;
+using TaskFlow.GerenciamentoProjetos.Domain.Exceptions;
 using TaskFlow.GerenciamentoProjetos.Domain.Projetos;
 using Xunit;
 
@@ -68,7 +69,18 @@ namespace TaskFlow.GerenciamentoProjetos.UnitTests.Domain
             Assert.Equal(3, projeto.FluxosTrabalho.Count);
         }
 
+        [Fact]
+        public void Deve_adicionar_data_de_inicio_a_um_projeto()
+        {
+            //Arrange
+            DateTime dataInicioProjeto = DateTime.Parse("1982-09-14 13:32:00");
+            var projeto = new Projeto("Projeto de teste", "Descrição do projeto de teste");
 
+            //Act 
+            projeto.DefinirDataInicio(dataInicioProjeto);
 
+            //Assert
+            Assert.Equal(dataInicioProjeto, projeto.DataInicio);
+        }
     }
 }
