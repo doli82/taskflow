@@ -36,9 +36,9 @@ namespace TaskFlow.GerenciamentoProjetos.Domain.Projetos
 			Descricao=descricao;
 		}
 
-		public void AdicionarParticipante(int usuarioId)
+		public void AdicionarParticipante(Participante participante)
 		{
-			_participantes.Add(new Participante(usuarioId));
+			_participantes.Add(participante);
 		}
 
 		public void AdicionarFluxoTrabalho(string fluxoTrabalhoNome)

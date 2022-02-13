@@ -1,5 +1,6 @@
 ﻿using System;
 using TaskFlow.GerenciamentoProjetos.Domain.Exceptions;
+using TaskFlow.GerenciamentoProjetos.Domain.Participantes;
 using TaskFlow.GerenciamentoProjetos.Domain.Projetos;
 using Xunit;
 

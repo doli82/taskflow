@@ -14,9 +14,11 @@ Voltar ao [Início](../Readme.md)
 - As `equipes` **devem** conter pelo menos um `participante`
 - As `equipes` **podem** conter um `lider`
 
-# Participamnte
-- são usuários do sistema que integram projetos
-- podem participar de um ou mais projetos
+# Participante
+- [x] participantes são usuários do sistema que integram projetos
+- [x] participantes **devem** ter nome
+- [x] podem participar de um ou mais projetos
+- [x] podem pertencer a uma ou mais equipes
 
 # Lider Equipe
 - pode liderar uma ou mais equipes
