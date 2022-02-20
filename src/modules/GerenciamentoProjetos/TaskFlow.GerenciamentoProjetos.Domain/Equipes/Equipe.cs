@@ -14,7 +14,11 @@ namespace TaskFlow.GerenciamentoProjetos.Domain.Equipes
 
 		public Equipe(string tituloEquipe, List<Participante> participantes)
 		{
-			if(participantes == null  || (participantes != null && participantes.Count == 0))
+			if (string.IsNullOrWhiteSpace(tituloEquipe))
+			{
+				throw new EquipeDomainException("Não é possível criar uma equipe sem fornecer o título");
+			}
+			if (participantes == null  || (participantes != null && participantes.Count == 0))
 			{
 				throw new EquipeDomainException("Não é possível criar uma equipe sem participantes");
 			}
