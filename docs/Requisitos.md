@@ -10,8 +10,8 @@ Voltar ao [Início](../Readme.md)
 
 
 ## Equipe
-- As `equipes` **devem** conter um nome
-- As `equipes` **devem** conter pelo menos um `participante`
+- [x] As `equipes` **devem** conter um nome
+- [x] As `equipes` **devem** conter pelo menos um `participante`
 - As `equipes` **podem** conter um `lider`
 
 # Participante

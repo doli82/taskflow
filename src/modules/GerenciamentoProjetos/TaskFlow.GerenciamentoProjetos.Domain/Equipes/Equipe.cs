@@ -10,6 +10,18 @@ namespace TaskFlow.GerenciamentoProjetos.Domain.Equipes
 		public IReadOnlyCollection<Participante> Participantes => _participantes;
 		private readonly List<Participante> _participantes = new();
 
+		public string TituloEquipe { get; }
+
+		public Equipe(string tituloEquipe, List<Participante> participantes)
+		{
+			if(participantes == null  || (participantes != null && participantes.Count == 0))
+			{
+				throw new EquipeDomainException("Não é possível criar uma equipe sem participantes");
+			}
+			TituloEquipe=tituloEquipe;
+			_participantes=participantes;
+		}
+
 		public void AdicionarParticipante(Participante participante)
 		{
 			var participanteExistente = _participantes.FirstOrDefault(p => p.Id == participante.Id);
