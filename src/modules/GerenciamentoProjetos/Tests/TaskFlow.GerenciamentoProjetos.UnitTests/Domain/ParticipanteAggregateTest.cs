@@ -1,4 +1,6 @@
-﻿using TaskFlow.GerenciamentoProjetos.Domain.Equipes;
+﻿using System.Collections.Generic;
+using System.Linq;
+using TaskFlow.GerenciamentoProjetos.Domain.Equipes;
 using TaskFlow.GerenciamentoProjetos.Domain.Exceptions;
 using TaskFlow.GerenciamentoProjetos.Domain.Participantes;
 using TaskFlow.GerenciamentoProjetos.Domain.Projetos;
@@ -60,16 +62,16 @@ namespace TaskFlow.GerenciamentoProjetos.UnitTests.Domain
         public void Deve_adicionar_um_participante_a_uma_equipe()
         {
             //Arrange
-            int usuarioId = 10;
-            string usuarioNome = "Daniel Oliveira";
-            var equipe = new Equipe();
+            string nomeEquipe = "Minha equipe";
+            var participanteParaAdicionar = new Participante(10, "Daniel Oliveira");
+            var participantes = new List<Participante>() { new Participante(5, "Fabrício Almeida") };
+            var equipe = new Equipe(nomeEquipe, participantes);
 
             //Act
-            var participante = new Participante(usuarioId, usuarioNome);
-            equipe.AdicionarParticipante(participante);
+            equipe.AdicionarParticipante(participanteParaAdicionar);
 
             //Assert
-            Assert.Equal(1, equipe.Participantes.Count);
+            Assert.Equal(2, equipe.Participantes.Count);
         }
 
 
@@ -77,34 +79,35 @@ namespace TaskFlow.GerenciamentoProjetos.UnitTests.Domain
         public void Deve_falhar_ao_adicionar_um_participante_a_uma_equipe_mais_de_uma_vez()
         {
             //Arrange
-            int usuarioId = 10;
-            string usuarioNome = "Daniel Oliveira";
-            var equipe = new Equipe();
-
-            //Act
-            var participante_instancia1 = new Participante(usuarioId, usuarioNome);
-            var participante_instancia2 = new Participante(usuarioId, usuarioNome);
-            equipe.AdicionarParticipante(participante_instancia1);
+            string nomeEquipe = "Minha equipe";
+            var participantes = new List<Participante>() { new Participante(10, "Daniel Oliveira") };
+            var participanteParaAdicionar = new Participante(10, "Daniel Oliveira");
+            var equipe = new Equipe(nomeEquipe, participantes);
 
             //Act - Assert
-            Assert.Throws<EquipeDomainException>(() => equipe.AdicionarParticipante(participante_instancia2));
+            Assert.Throws<EquipeDomainException>(() => equipe.AdicionarParticipante(participanteParaAdicionar));
         }
 
         [Fact]
         public void Deve_adicionar_um_participante_a_duas_equipes()
         {
             //Arrange
-            var participante = new Participante(10, "Daniel Oliveira");
-            var equipe1 = new Equipe();
-            var equipe2 = new Equipe();
+            var participanteParaAdicionar = new Participante(10, "Daniel Oliveira");
+            string nomeEquipe1 = "Minha equipe 1";
+            var participantesEquipe1 = new List<Participante>() { participanteParaAdicionar };
+            string nomeEquipe2 = "Minha equipe 2";
+            var participantesEquipe2 = new List<Participante>() { new Participante(5, "Fabrício Almeida") };
+
+            var equipe1 = new Equipe(nomeEquipe1, participantesEquipe1);
+            var equipe2 = new Equipe(nomeEquipe2, participantesEquipe2);
 
             //Act
-            equipe1.AdicionarParticipante(participante);
-            equipe2.AdicionarParticipante(participante);
+            equipe2.AdicionarParticipante(participanteParaAdicionar);
 
             //Assert
-            Assert.Equal(1, equipe1.Participantes.Count);
-            Assert.Equal(1, equipe2.Participantes.Count);
+            Assert.Equal(2, equipe2.Participantes.Count);
+            Assert.Contains(equipe1.Participantes, p => p.Id == 10);
+            Assert.Contains(equipe2.Participantes, p => p.Id == 10);
         }
     }
 }
