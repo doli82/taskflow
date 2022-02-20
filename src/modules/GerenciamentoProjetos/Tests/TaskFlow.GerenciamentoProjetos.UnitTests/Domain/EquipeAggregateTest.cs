@@ -87,5 +87,25 @@ namespace TaskFlow.GerenciamentoProjetos.UnitTests.Domain
             //Act-Assert
             Assert.Throws<EquipeDomainException>(() => new Equipe(tituloEquipe, participantesEquipe));
         }
+
+        [Fact]
+        public void Deve_promover_um_participante_a_lider_da_equipe() 
+        {
+            // Arrange
+            var tituloEquipe = "Minha Equipe";
+            var idParticipanteLider = 1;
+            var participantesEquipe = new List<Participante>() {
+                new Participante(1, "Daniel Oliveira"),
+                new Participante(2, "Fabrício Almeida"),
+            };
+            var equipe = new Equipe(tituloEquipe, participantesEquipe);
+
+            // Act
+            equipe.PromoverParticipanteLider(idParticipanteLider);
+
+            // Assert
+            Assert.NotNull(equipe.Lider);
+            Assert.Equal(1, equipe.Lider.ParticipanteId);
+        }
     }
 }

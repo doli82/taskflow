@@ -12,7 +12,7 @@ Voltar ao [Início](../Readme.md)
 ## Equipe
 - [x] As `equipes` **devem** conter um nome
 - [x] As `equipes` **devem** conter pelo menos um `participante`
-- As `equipes` **podem** conter um `lider`
+- [x] As `equipes` **podem** conter um `lider`
 
 # Participante
 - [x] participantes são usuários do sistema que integram projetos

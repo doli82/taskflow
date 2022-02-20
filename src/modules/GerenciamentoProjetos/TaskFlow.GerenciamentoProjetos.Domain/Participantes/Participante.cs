@@ -15,6 +15,6 @@ namespace TaskFlow.GerenciamentoProjetos.Domain.Participantes
 			Nome=nome;
 		}
 
-		public string Nome { get; set; }
+		public string Nome { get; private set; }
 	}
 }
